@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StudyVault is a student-friendly library for notes, question papers, and study tips." />
+  <title>StudyVault | Your student resource library</title>
+
+  <!-- Poppins is readable on both mobile and desktop screens. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="#home" data-section-link="home" aria-label="StudyVault home">
+        <span class="brand-mark" aria-hidden="true">SV</span>
+        <span>Study<span>Vault</span></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="#home" data-section-link="home" class="nav-link active">Home</a>
+        <a href="#browse" data-section-link="browse" class="nav-link">Browse</a>
+        <a href="#upload" data-section-link="upload" class="nav-link">Upload</a>
+        <a href="#bookmarks" data-section-link="bookmarks" class="nav-link">Bookmarks</a>
+        <a href="#about" data-section-link="about" class="nav-link">About</a>
+      </nav>
+
+      <button class="icon-button theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+        <span id="themeIcon" aria-hidden="true">☾</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Home section -->
+    <section class="app-section active" id="home" aria-labelledby="homeTitle">
+      <div class="hero container">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span>Built for real college life</span>
+          <h1 id="homeTitle">All your study material. <span>One calm place.</span></h1>
+          <p class="hero-text">Find notes, previous-year papers, and practical study tips without digging through endless group chats.</p>
+
+          <form class="hero-search" id="heroSearchForm" role="search">
+            <label class="sr-only" for="heroSearch">Search StudyVault</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="heroSearch" type="search" placeholder="Search notes, subjects, or question papers..." autocomplete="off" />
+            <button class="button button-primary" type="submit">Search</button>
+          </form>
+          <p class="search-hint">Try “data structures”, “semester 4”, or “question paper”.</p>
+          <div class="hero-proof" aria-label="StudyVault benefits">
+            <span><b aria-hidden="true">✓</b> Organised by subject</span>
+            <span><b aria-hidden="true">✓</b> Save what matters</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="StudyVault resource overview" role="img">
+          <div class="visual-glow"></div>
+          <div class="floating-note note-one"><span class="note-icon">⌘</span><span><strong>Everything organised</strong><small>By semester and subject</small></span></div>
+          <div class="floating-note note-two"><span class="note-icon">✓</span><span><strong>Ready when you are</strong><small>Built for focused study</small></span></div>
+          <div class="hero-card-stack">
+            <div class="mini-card mini-card-back"></div>
+            <div class="mini-card mini-card-middle"></div>
+            <div class="mini-card mini-card-front">
+              <div class="mini-card-top"><span class="mini-logo">SV</span><span class="mini-chip">Study plan</span></div>
+              <div class="mini-lines"><span></span><span></span><span></span></div>
+              <div class="mini-progress"><span></span></div>
+              <div class="mini-card-bottom"><span>Progress</span><strong>78%</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container stats-grid" aria-label="StudyVault statistics">
+        <div class="stat-card"><span class="stat-icon blue-icon">▦</span><div><strong id="totalResources">0</strong><span>Resources</span></div></div>
+        <div class="stat-card"><span class="stat-icon purple-icon">◈</span><div><strong id="totalSubjects">0</strong><span>Subjects</span></div></div>
+        <div class="stat-card"><span class="stat-icon orange-icon">▲</span><div><strong id="totalUpvotes">0</strong><span>Community upvotes</span></div></div>
+        <div class="stat-card stat-card-accent"><span class="stat-icon green-icon">✦</span><div><strong>100%</strong><span>Student focused</span></div></div>
+      </div>
+
+      <div class="container home-callout">
+        <div>
+          <span class="eyebrow">Start exploring</span>
+          <h2>A better way to prepare for every exam.</h2>
+          <p>Browse resources shared by students, save your favourites, and give a useful resource an upvote.</p>
+        </div>
+        <button class="button button-dark" type="button" data-go-section="browse">Explore resources <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <!-- Browse section -->
+    <section class="app-section" id="browse" aria-labelledby="browseTitle">
+      <div class="container page-heading">
+        <div><span class="eyebrow">Resource library</span><h2 id="browseTitle">Browse study material</h2><p>Filter the collection to find exactly what you need.</p></div>
+        <button class="button button-primary" type="button" data-go-section="upload">+ Add resource</button>
+      </div>
+
+      <div class="container browse-tools">
+        <div class="browse-search-wrap">
+          <label class="sr-only" for="browseSearch">Search resources</label>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="browseSearch" type="search" placeholder="Search resources..." autocomplete="off" />
+        </div>
+        <div class="filter-group">
+          <label for="departmentFilter">Department</label>
+          <select id="departmentFilter"><option value="">All departments</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="semesterFilter">Semester</label>
+          <select id="semesterFilter"><option value="">All semesters</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="subjectFilter">Subject</label>
+          <select id="subjectFilter"><option value="">All subjects</option></select>
+        </div>
+        <div class="filter-group">
+          <label for="typeFilter">Type</label>
+          <select id="typeFilter">
+            <option value="">All types</option>
+            <option value="Notes">Notes</option>
+            <option value="Question Paper">Question Paper</option>
+            <option value="Tips">Tips</option>
+          </select>
+        </div>
+        <div class="filter-group sort-group">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect"><option value="upvotes">Most upvoted</option><option value="newest">Newest</option></select>
+        </div>
+      </div>
+
+      <div class="container result-row"><p id="resultSummary">Showing all resources</p><button id="clearFilters" class="text-button" type="button">Clear filters</button></div>
+      <div class="container resource-grid" id="resourcesGrid" aria-live="polite"></div>
+      <div class="container empty-state hidden" id="browseEmptyState"><div class="empty-icon">⌕</div><h3>No resources found</h3><p>Try another search or clear one of the filters.</p><button class="button button-secondary" id="emptyClearFilters" type="button">Clear filters</button></div>
+    </section>
+
+    <!-- Upload section -->
+    <section class="app-section" id="upload" aria-labelledby="uploadTitle">
+      <div class="container page-heading"><div><span class="eyebrow">Share knowledge</span><h2 id="uploadTitle">Add a study resource</h2><p>Help another student by sharing a useful link.</p></div></div>
+      <div class="container upload-layout">
+        <div class="upload-info">
+          <div class="info-illustration">↗</div>
+          <h3>Have something helpful?</h3>
+          <p>Add notes, question papers, or tips from a trusted source. Your resource will appear immediately in this browser.</p>
+          <div class="upload-check"><span>✓</span><span>Use a clear, useful title</span></div>
+          <div class="upload-check"><span>✓</span><span>Add enough detail to help others</span></div>
+          <div class="upload-check"><span>✓</span><span>Share a working web link</span></div>
+        </div>
+
+        <form class="resource-form" id="resourceForm" novalidate>
+          <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+          <div class="form-row">
+            <div class="form-field"><label for="resourceTitle">Resource title <span>*</span></label><input id="resourceTitle" name="title" type="text" maxlength="90" placeholder="e.g. Data Structures unit-wise notes" /><small class="field-error" data-error-for="title"></small></div>
+            <div class="form-field"><label for="resourceSubject">Subject <span>*</span></label><input id="resourceSubject" name="subject" type="text" maxlength="60" placeholder="e.g. Data Structures" /><small class="field-error" data-error-for="subject"></small></div>
+          </div>
+          <div class="form-field"><label for="resourceDescription">Description <span>*</span></label><textarea id="resourceDescription" name="description" rows="4" maxlength="300" placeholder="Tell students what this resource covers and why it is useful."></textarea><small class="field-error" data-error-for="description"></small></div>
+          <div class="form-row three-columns">
+            <div class="form-field"><label for="resourceDepartment">Department <span>*</span></label><select id="resourceDepartment" name="department"><option value="">Choose department</option><option>Computer Science</option><option>Information Technology</option><option>Electronics &amp; Communication</option><option>Mechanical Engineering</option><option>Civil Engineering</option></select><small class="field-error" data-error-for="department"></small></div>
+            <div class="form-field"><label for="resourceSemester">Semester <span>*</span></label><select id="resourceSemester" name="semester"><option value="">Choose semester</option><option>Semester 1</option><option>Semester 2</option><option>Semester 3</option><option>Semester 4</option><option>Semester 5</option><option>Semester 6</option><option>Semester 7</option><option>Semester 8</option></select><small class="field-error" data-error-for="semester"></small></div>
+            <div class="form-field"><label for="resourceType">Type <span>*</span></label><select id="resourceType" name="type"><option value="">Choose type</option><option>Notes</option><option>Question Paper</option><option>Tips</option></select><small class="field-error" data-error-for="type"></small></div>
+          </div>
+          <div class="form-field"><label for="resourceLink">Resource link <span>*</span></label><input id="resourceLink" name="link" type="url" placeholder="https://example.com/your-resource" /><small class="field-error" data-error-for="link"></small><small class="input-hint">Use a complete link beginning with https:// or http://</small></div>
+          <div class="form-actions"><button class="button button-primary" type="submit">Publish resource <span aria-hidden="true">↗</span></button><button class="button button-ghost" type="reset">Clear form</button></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Bookmarks section -->
+    <section class="app-section" id="bookmarks" aria-labelledby="bookmarksTitle">
+      <div class="container page-heading"><div><span class="eyebrow">Your collection</span><h2 id="bookmarksTitle">Saved bookmarks</h2><p>Keep your most useful study resources close.</p></div></div>
+      <div class="container resource-grid" id="bookmarksGrid" aria-live="polite"></div>
+      <div class="container empty-state" id="bookmarksEmptyState"><div class="empty-icon">♡</div><h3>No bookmarks yet</h3><p>Tap the bookmark icon on any resource to save it here.</p><button class="button button-secondary" type="button" data-go-section="browse">Browse resources</button></div>
+    </section>
+
+    <!-- About section -->
+    <section class="app-section" id="about" aria-labelledby="aboutTitle">
+      <div class="container page-heading"><div><span class="eyebrow">Our purpose</span><h2 id="aboutTitle">Making studying feel less scattered.</h2><p>StudyVault turns the mess of group chats and random links into a simple student-owned library.</p></div></div>
+      <div class="container about-grid">
+        <article class="about-card"><span class="about-number">01</span><div class="about-icon">⚠</div><h3>The problem</h3><p>Important notes and question papers are often lost in WhatsApp messages, old Drive links, and disconnected folders. Finding the right material takes time students do not have.</p></article>
+        <article class="about-card about-card-highlight"><span class="about-number">02</span><div class="about-icon">✦</div><h3>The solution</h3><p>StudyVault organizes student-shared resources by department, semester, subject, and type, so useful material is searchable when exams are near.</p></article>
+        <article class="about-card"><span class="about-number">03</span><div class="about-icon">♧</div><h3>The community</h3><p>Students can add helpful links, upvote the best resources, and bookmark what they want to revisit. Small contributions make exam preparation easier for everyone.</p></article>
+      </div>
+      <div class="container team-section"><div><span class="eyebrow">The team</span><h2>A small idea with a big student impact.</h2></div><div class="team-list"><div class="team-member"><span class="avatar avatar-blue">AS</span><div><strong>Alex Sharma</strong><span>Product &amp; research</span></div></div><div class="team-member"><span class="avatar avatar-purple">RK</span><div><strong>Riya Kapoor</strong><span>Design &amp; accessibility</span></div></div><div class="team-member"><span class="avatar avatar-orange">NV</span><div><strong>Neel Verma</strong><span>Development &amp; testing</span></div></div></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main"><div class="footer-brand"><a class="brand brand-light" href="#home" data-section-link="home"><span class="brand-mark">SV</span><span>Study<span>Vault</span></span></a><p>Learn together. Share freely. Study smarter.</p></div><div class="footer-contact"><span>Questions or suggestions?</span><a href="mailto:hello@studyvault.example">hello@studyvault.example</a></div></div>
+    <div class="container footer-bottom"><span>© <span id="currentYear"></span> StudyVault. Made for students.</span><span>Built with HTML, CSS &amp; JavaScript</span></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
